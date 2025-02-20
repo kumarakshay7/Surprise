@@ -99,11 +99,9 @@ Ki kabhi toh aayega tera ek shabdon ka haath.
 Koi ek jawab, koi ek izhaar,
 Ki haan, tu bhi karti hai mujhse pyaar.
 
-I must admit, I was hesitant at first,unsure if I should express these feelings.
-But now, with all the certainty in my heart,I know that you are incredibly special to me.
-So here I am, laying my heart bare,hoping that you can feel the warmth and sincerity behind these words.
-
-
+I must admit, I was hesitant at first, unsure if I should express these feelings.
+But now, with all the certainty in my heart, I know that you are incredibly special to me.
+So here I am, laying my heart bare, hoping that you can feel the warmth and sincerity behind these words.
             """
             for line in love_letter.split("\n"):
                 st.write(line)
@@ -123,7 +121,48 @@ So here I am, laying my heart bare,hoping that you can feel the warmth and since
             if response == "Yes, I would love to!":
                 st.success("You just made me the happiest person in the world! ❤️😍💞")
                 st.balloons()
-                st.markdown("<h1 style='text-align:center; color:#ff4d6d;'>💖💖💖</h1>", unsafe_allow_html=True)
+                st.markdown("""
+                <div style="font-size: 60px; text-align: center; animation: pulse 2s infinite; color: red;">
+                    💖💓💗💞💘
+                </div>
+                <br>
+                <!-- Custom Heart Shape -->
+                <div class="heart"></div>
+                <style>
+                @keyframes pulse {
+                  0% { transform: scale(1); }
+                  50% { transform: scale(1.2); }
+                  100% { transform: scale(1); }
+                }
+                .heart {
+                  position: relative;
+                  width: 100px;
+                  height: 90px;
+                  margin: 20px auto;
+                }
+                .heart:before,
+                .heart:after {
+                  content: "";
+                  position: absolute;
+                  width: 50px;
+                  height: 80px;
+                  background: red;
+                  border-radius: 50px 50px 0 0;
+                }
+                .heart:before {
+                  left: 50px;
+                  top: 0;
+                  transform: rotate(-45deg);
+                  transform-origin: 0 100%;
+                }
+                .heart:after {
+                  left: 0;
+                  top: 0;
+                  transform: rotate(45deg);
+                  transform-origin: 100% 100%;
+                }
+                </style>
+                """, unsafe_allow_html=True)
             elif response == "I need time to think...":
                 st.warning("Take your time, Ahona. No matter what, you’ll always be special to me. 😊")
             else:
