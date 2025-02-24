@@ -168,7 +168,7 @@ So here I am, laying my heart bare, hoping that you can feel the warmth and sinc
             else:
                 st.error("I respect your decision. No matter what, you’ll always be cherished. 💖")
         else:
-            st.warning("This experience is reserved for a very special person named Ahona. Thank you for participating!")
+            st.warning("This experience is reserved for a very special person named Ahona Ayan. Thank you for participating!")
     else:
         st.error("Oops! You need at least 6 correct answers to proceed. Please try again! 💡")
 else:
