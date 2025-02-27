@@ -61,11 +61,11 @@ if name:
         user_answer = st.radio(question, options, key=question)
         user_answers[question] = user_answer
         
-        if user_answer != "Select an option":
-            if user_answer == correct:
-                st.success("✅ Correct!")
-            else:
-                st.error("❌ Wrong Answer!")
+    if user_answer != "Select an option":
+        if user_answer == correct:
+            st.success("✅ Correct!")
+        else:
+            st.error("❌ Wrong Answer!")
     
     score = sum([1 for key in correct_answers if user_answers[key] == correct_answers[key]])
     
