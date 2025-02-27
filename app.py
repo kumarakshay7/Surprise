@@ -76,7 +76,7 @@ if name:
     
     score = sum([1 for key in correct_answers if user_answers.get(key) == correct_answers[key]])
     
-    if score >= 7:
+    if score >= 6:
         if name.strip().lower() == "ahona ayan":
             st.success("Congratulations, Ahona Ayan! You got most answers correct! 🎉")
             time.sleep(1)
@@ -89,6 +89,6 @@ I’ve been meaning to say something for a while now, but I never found the righ
                 st.write(line)
                 time.sleep(0.2)
     else:
-        st.error("Oops! You need at least 7 correct answers to proceed. Please try again! 💡")
+        st.error("Oops! You need at least 6correct answers to proceed. Please try again! 💡")
 else:
     st.info("Please enter your name to begin the experience.")
