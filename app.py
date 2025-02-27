@@ -35,7 +35,8 @@ st.markdown(
 )
 
 st.markdown("<div class='header'>💌 A Special Message for You 💌</div>", unsafe_allow_html=True)
-st.image("https://source.unsplash.com/featured/?romantic", use_column_width=True)
+st.image("https://source.unsplash.com/featured/?romantic", use_container_width=True)
+
 
 name = st.text_input("Enter your name to begin:")
 
