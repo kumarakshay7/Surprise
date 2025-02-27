@@ -37,7 +37,6 @@ st.markdown(
 st.markdown("<div class='header'>💌 A Special Message for You 💌</div>", unsafe_allow_html=True)
 st.image("https://source.unsplash.com/featured/?romantic", use_container_width=True)
 
-
 name = st.text_input("Enter your name to begin:")
 
 if name:
@@ -46,30 +45,59 @@ if name:
     
     st.markdown("<h3 style='text-align:center; color:#ff4d6d;'>💡 Answer these questions correctly to unlock the surprise message 💡</h3>", unsafe_allow_html=True)
     
-    q1 = st.radio("Where did we first meet?", ["Select an option", "Church", "Office", "Unwind event", "Isha Foundation", "Movie theater"])
-    q2 = st.radio("What drink did I ask you about?", ["Select an option", "Soft drink", "Vadka", "Whiskey", "Beer", "Wine"])
-    q3 = st.radio("When did I realize I had feelings for you?", ["Select an option", "October 28th", "November 23rd", "December 25th", "January 1st"])
-    q4 = st.radio("Which memory makes my heart race the most?", ["Select an option", "Dancing at the Unwind event", "Church", "Strolling at Isha Foundation", "Laughing at the movie theater"])
-    q5 = st.radio("What does our journey mean to me?", ["Select an option", "A fleeting moment", "Nothing", "An everlasting memory", "Just a chapter"])
-    q6 = st.radio("Which movie did you enjoy watching with me the most?", ["Select an option", "Sanam Teri Kasam", "Chhaava", "Vickey Ka Woh Wala Video"])
-    q7 = st.radio("Imagine your life’s theme song. Which of these best describes it?", ["Select an option", "Sweet and smooth like Dard chocolate", "Warm and twisty like noodles", "Deep and dramatic like a sad song"])
-    q8 = st.radio("What is the aim of this interactive experience?", ["Select an option", "To unlock a special surprise message", "To test your knowledge", "Just for fun"])
+    correct_answers = {
+        "Where did we first meet?": "Unwind event",
+        "What drink did I ask you about?": "Whiskey",
+        "When did I realize I had feelings for you?": "November 23rd",
+        "Which memory makes my heart race the most?": "Laughing at the movie theater",
+        "What does our journey mean to me?": "An everlasting memory",
+        "Which movie did you enjoy watching with me the most?": "Vickey Ka Woh Wala Video",
+        "Imagine your life’s theme song. Which of these best describes it?": "Sweet and smooth like Dard chocolate",
+        "What is the aim of this interactive experience?": "To unlock a special surprise message"
+    }
     
-    correct_answers = {"q1": "Unwind event", "q2": "Whiskey", "q3": "November 23rd", "q4": "Laughing at the movie theater", "q5": "An everlasting memory", "q6": "Vickey Ka Woh Wala Video", "q7": "Sweet and smooth like Dard chocolate", "q8": "To unlock a special surprise message"}
-    user_answers = {"q1": q1, "q2": q2, "q3": q3, "q4": q4, "q5": q5, "q6": q6, "q7": q7, "q8": q8}
+    user_answers = {}
+    
     def check_answer(question, options, correct):
-        user_answer = st.radio(question, options, key=question)
-        user_answers[question] = user_answer
-        
-    if user_answer != "Select an option":
-        if user_answer == correct:
-            st.success("✅ Correct!")
-        else:
-            st.error("❌ Wrong Answer!")
+        answer = st.radio(question, options, key=question)
+        user_answers[question] = answer
+        if answer != "Select an option":
+            if answer == correct:
+                st.success("✅ Correct!")
+            else:
+                st.error("❌ Wrong Answer!")
+        return answer
     
-    score = sum([1 for key in correct_answers if user_answers[key] == correct_answers[key]])
+    # Call check_answer for each question
+    q1 = check_answer("Where did we first meet?", 
+                      ["Select an option", "Church", "Office", "Unwind event", "Isha Foundation", "Movie theater"],
+                      correct_answers["Where did we first meet?"])
+    q2 = check_answer("What drink did I ask you about?", 
+                      ["Select an option", "Soft drink", "Vadka", "Whiskey", "Beer", "Wine"],
+                      correct_answers["What drink did I ask you about?"])
+    q3 = check_answer("When did I realize I had feelings for you?", 
+                      ["Select an option", "October 28th", "November 23rd", "December 25th", "January 1st"],
+                      correct_answers["When did I realize I had feelings for you?"])
+    q4 = check_answer("Which memory makes my heart race the most?", 
+                      ["Select an option", "Dancing at the Unwind event", "Church", "Strolling at Isha Foundation", "Laughing at the movie theater"],
+                      correct_answers["Which memory makes my heart race the most?"])
+    q5 = check_answer("What does our journey mean to me?", 
+                      ["Select an option", "A fleeting moment", "Nothing", "An everlasting memory", "Just a chapter"],
+                      correct_answers["What does our journey mean to me?"])
+    q6 = check_answer("Which movie did you enjoy watching with me the most?", 
+                      ["Select an option", "Sanam Teri Kasam", "Chhaava", "Vickey Ka Woh Wala Video"],
+                      correct_answers["Which movie did you enjoy watching with me the most?"])
+    q7 = check_answer("Imagine your life’s theme song. Which of these best describes it?", 
+                      ["Select an option", "Sweet and smooth like Dard chocolate", "Warm and twisty like noodles", "Deep and dramatic like a sad song"],
+                      correct_answers["Imagine your life’s theme song. Which of these best describes it?"])
+    q8 = check_answer("What is the aim of this interactive experience?", 
+                      ["Select an option", "To unlock a special surprise message", "To test your knowledge", "Just for fun"],
+                      correct_answers["What is the aim of this interactive experience?"])
     
-    if score >= 6:
+    # Calculate score by checking user_answers dictionary
+    score = sum([1 for question in correct_answers if user_answers.get(question) == correct_answers[question]])
+    
+    if score >= 7:
         if name.strip().lower() == "ahona ayan":
             st.success("Congratulations, Ahona Ayan! You got most answers correct! 🎉")
             time.sleep(1)
@@ -117,9 +145,7 @@ So here I am, laying my heart bare, hoping that you can feel the warmth and sinc
                 st.write(line)
                 time.sleep(0.2)
             
-            # ----------------------------
             # Feedback & Response Section
-            # ----------------------------
             st.subheader("Your Thoughts, Ahona")
             feedback = st.radio(
                 "How did the letter make you feel?",
@@ -152,27 +178,7 @@ So here I am, laying my heart bare, hoping that you can feel the warmth and sinc
                 }
                 .heart:before,
                 .heart:after {
-                  content: "";
-                  position: absolute;
-                  width: 50px;
-                  height: 80px;
-                  background: red;
-                  border-radius: 50px 50px 0 0;
-                }
-                .heart:before {
-                  left: 50px;
-                  top: 0;
-                  transform: rotate(-45deg);
-                  transform-origin: 0 100%;
-                }
-                .heart:after {
-                  left: 0;
-                  top: 0;
-                  transform: rotate(45deg);
-                  transform-origin: 100% 100%;
-                }
-                </style>
-                """, unsafe_allow_html=True)
+                  content: \"\";\n                  position: absolute;\n                  width: 50px;\n                  height: 80px;\n                  background: red;\n                  border-radius: 50px 50px 0 0;\n                }\n                .heart:before {\n                  left: 50px;\n                  top: 0;\n                  transform: rotate(-45deg);\n                  transform-origin: 0 100%;\n                }\n                .heart:after {\n                  left: 0;\n                  top: 0;\n                  transform: rotate(45deg);\n                  transform-origin: 100% 100%;\n                }\n                </style>\n                """, unsafe_allow_html=True)
             elif response == "I need time to think...":
                 st.warning("Take your time, Ahona. No matter what, you’ll always be special to me. 😊")
             else:
@@ -180,6 +186,6 @@ So here I am, laying my heart bare, hoping that you can feel the warmth and sinc
         else:
             st.warning("This experience is reserved for a very special person named Ahona Ayan. Thank you for participating!")
     else:
-        st.error("Oops! You need at least 6 correct answers to proceed. Please try again! 💡")
+        st.error("Oops! You need at least 7 correct answers to proceed. Please try again! 💡")
 else:
     st.info("Please enter your name to begin the experience.")
