@@ -56,7 +56,7 @@ if name:
     
     correct_answers = {"q1": "Unwind event", "q2": "Whiskey", "q3": "November 23rd", "q4": "Laughing at the movie theater", "q5": "An everlasting memory", "q6": "Vickey Ka Woh Wala Video", "q7": "Sweet and smooth like Dard chocolate", "q8": "To unlock a special surprise message"}
     user_answers = {"q1": q1, "q2": q2, "q3": q3, "q4": q4, "q5": q5, "q6": q6, "q7": q7, "q8": q8}
-        def check_answer(question, options, correct):
+    def check_answer(question, options, correct):
         user_answer = st.radio(question, options, key=question)
         user_answers[question] = user_answer
         
