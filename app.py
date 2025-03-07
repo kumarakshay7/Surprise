@@ -1,34 +1,3 @@
-import json
-import os
-
-DATA_FILE = "user_data.json"
-
-def load_data():
-    """Load user data from JSON file."""
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as file:
-            return json.load(file)
-    return {}
-
-def save_data(data):
-    """Save user data to JSON file."""
-    with open(DATA_FILE, "w") as file:
-        json.dump(data, file, indent=4)
-
-# This must be the first Streamlit command executed.
-st.set_page_config(page_title="💖 A Special Message for You 💖", layout="centered")
-
-name = st.text_input("Enter your name to begin:")
-
-if name:
-    st.write(f"Hello {name}! Your data will be saved.")
-
-    # Save user input in JSON
-    user_data[name] = {"name": name}
-    save_data(user_data)
-
-    st.success("Your name has been saved successfully!")
-
 # Set page configuration
 st.set_page_config(page_title="💖 A Special Message for You 💖", layout="centered")
 
@@ -80,7 +49,7 @@ if name:
         "Which memory makes my heart race the most?": "Laughing at the movie theater",
         "What does our journey mean to me?": "An everlasting memory",
         "Which movie did you enjoy watching with me the most?": "Vickey Ka Woh Wala Video",
-        "Imagine your life’s theme song. Which of these best describes it?": "Sweet and smooth like Dark chocolate",
+        "Imagine your life’s theme song. Which of these best describes it?": "Sweet and smooth like Dard chocolate",
         "What is the aim of this interactive experience?": "To unlock a special surprise message"
     }
     
@@ -217,3 +186,5 @@ So here I am, laying my heart bare, hoping that you can feel the warmth and sinc
         st.error("Oops! You need at least 7 correct answers to proceed. Please try again! 💡")
 else:
     st.info("Please enter your name to begin the experience.")
+2. Requirement.txt
+streamlit==1.24.1
