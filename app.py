@@ -186,5 +186,3 @@ So here I am, laying my heart bare, hoping that you can feel the warmth and sinc
         st.error("Oops! You need at least 7 correct answers to proceed. Please try again! 💡")
 else:
     st.info("Please enter your name to begin the experience.")
-2. Requirement.txt
-streamlit==1.24.1
