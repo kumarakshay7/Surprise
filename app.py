@@ -88,7 +88,7 @@ if name:
                       ["Select an option", "Sanam Teri Kasam", "Chhaava", "Vickey Ka Woh Wala Video"],
                       correct_answers["Which movie did you enjoy watching with me the most?"])
     q7 = check_answer("Imagine your life’s theme song. Which of these best describes it?", 
-                      ["Select an option", "Sweet and smooth like Dard chocolate", "Warm and twisty like noodles", "Deep and dramatic like a sad song"],
+                      ["Select an option", "Sweet and smooth like Dark chocolate", "Warm and twisty like noodles", "Deep and dramatic like a sad song"],
                       correct_answers["Imagine your life’s theme song. Which of these best describes it?"])
     q8 = check_answer("What is the aim of this interactive experience?", 
                       ["Select an option", "To unlock a special surprise message", "To test your knowledge", "Just for fun"],
