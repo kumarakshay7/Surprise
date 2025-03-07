@@ -3,25 +3,7 @@ import time
 import json
 import os
 
-# Define JSON file
-DATA_FILE = "user_data.json"
-
-# Function to load data
-def load_data():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as file:
-            return json.load(file)
-    return {}
-
-# Function to save data
-def save_data(data):
-    with open(DATA_FILE, "w") as file:
-        json.dump(data, file, indent=4)
-
-# Load existing data
-user_data = load_data()
-
-# Streamlit UI
+# This must be the first Streamlit command executed.
 st.set_page_config(page_title="💖 A Special Message for You 💖", layout="centered")
 
 name = st.text_input("Enter your name to begin:")
