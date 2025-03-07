@@ -1,3 +1,5 @@
+import streamlit as st
+import time
 # Set page configuration
 st.set_page_config(page_title="💖 A Special Message for You 💖", layout="centered")
 
