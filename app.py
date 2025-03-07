@@ -51,7 +51,7 @@ if name:
         "Which memory makes my heart race the most?": "Laughing at the movie theater",
         "What does our journey mean to me?": "An everlasting memory",
         "Which movie did you enjoy watching with me the most?": "Vickey Ka Woh Wala Video",
-        "Imagine your life’s theme song. Which of these best describes it?": "Sweet and smooth like Dard chocolate",
+        "Imagine your life’s theme song. Which of these best describes it?": "Sweet and smooth like Dark chocolate",
         "What is the aim of this interactive experience?": "To unlock a special surprise message"
     }
     
